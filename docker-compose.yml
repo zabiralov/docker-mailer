@@ -1,0 +1,9 @@
+mailer:
+  image: 'mailer1:latest'
+  restart: always
+  hostname: 'mailer.push.private'
+  # volumes:
+  #   - '/srv/mailer/config:/etc/mailer'
+  #   - '/srv/mailer/logs:/var/log/mailer'
+  ports:
+    - '587:587'
