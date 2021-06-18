@@ -1,0 +1,58 @@
+# Global Postfix configuration file.
+#
+# man 5 postconf
+
+compatibility_level = 3.6
+
+queue_directory = /var/spool/postfix
+data_directory = /var/lib/postfix
+maillog_file = /dev/stdout
+
+mail_owner = postfix
+default_privs = nobody
+
+inet_interfaces = all
+inet_protocols = ipv4
+
+myorigin = $myhostname
+
+mydestination =
+ $myhostname,
+ localhost
+
+mynetworks =
+ 127.0.0.0/8,
+ 172.17.0.0/16
+
+relay_domains = $mydestination
+
+smtpd_banner = $myhostname ESMTP $mail_name
+
+milter_default_action = accept
+
+smtpd_milters =
+ unix:/var/tmp/opendkim.sock
+
+non_smtpd_milters =
+ unix:/var/tmp/opendkim.sock
+
+smtpd_client_restrictions =
+ permit_mynetworks,
+ reject
+
+smtpd_helo_required = yes
+smtpd_helo_restrictions =
+ reject_invalid_hello_hostname,
+ reject_non_fqdn_helo_hostname,
+ permit
+
+smtpd_sender_restrictions =
+ reject_non_fqdn_sender
+
+smtpd_relay_restrictions =
+ permit_mynetworks,
+ reject_unauth_destination
+
+smtpd_recipient_restrictions =
+ permit_mynetworks,
+ reject
