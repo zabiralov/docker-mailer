@@ -4,6 +4,10 @@
 echo "Start syslogd ..."
 /sbin/syslogd -s 0 -O -
 
+# Create aliases db
+echo "Create aliases ..."
+/usr/sbin/postalias -c /etc/mailer lmdb:/etc/mailer/aliases
+
 # Start opendkim daemon
 echo "Start opendkim ..."
 /usr/sbin/opendkim -d "$DKIM_DOMAIN" -k "$DKIM_KEYFILE" -s "$DKIM_SELECTOR" -x /etc/mailer/opendkim.conf
