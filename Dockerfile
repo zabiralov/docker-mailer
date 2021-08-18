@@ -11,7 +11,8 @@ RUN apk --no-cache add --update dumb-init \
     netcat-openbsd netcat-openbsd-doc \
     postfix postfix-doc \
     opendkim opendkim-doc \
-    cyrus-sasl cyrus-sasl-login cyrus-sasl-scram cyrus-sasl-doc
+    cyrus-sasl cyrus-sasl-doc \
+    cyrus-sasl-login cyrus-sasl-digestmd5
 
 # Copy configuration files
 COPY . /etc/
