@@ -1,7 +1,7 @@
 DOCKER_FILE = Dockerfile
 DOCKER_FILE_FULL = Dockerfile.full
 COMPOSE_FILE = docker-compose.yml
-IMAGE_TAG = mailer1:latest
+IMAGE_TAG = zabiralov/docker-mailer:latest
 
 build:
 	docker build --no-cache -f $(DOCKER_FILE) -t $(IMAGE_TAG) . 

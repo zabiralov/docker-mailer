@@ -1,6 +1,5 @@
 mailer:
-  image: 'mailer1:latest'
-  restart: always
+  image: 'zabiralov/docker-mailer:latest'
   hostname: mailer.example.com
   environment:
     DKIM_DOMAIN: example.com
