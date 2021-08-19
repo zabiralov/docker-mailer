@@ -1,4 +1,5 @@
 .*
 *
 !/mailer/
+!/sasl2/
 !/start.sh

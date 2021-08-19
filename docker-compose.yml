@@ -6,3 +6,5 @@ mailer:
     DKIM_DOMAIN: example.com
     DKIM_KEYFILE: /etc/mailer/default.private
     DKIM_SELECTOR: default
+    RELAY_USER: relay
+    RELAY_PASS: securepass
