@@ -7,11 +7,12 @@ LABEL authors="Alexander Zabiralov <zabiralov@gmail.com>"
 
 # Install packages
 RUN apk --no-cache add --update dumb-init \
-    mailx \
-    netcat-openbsd \
-    postfix \
-    opendkim \
-    cyrus-sasl \
+    mailx mailx-doc \
+    man-db man-db-doc \
+    netcat-openbsd netcat-openbsd-doc \
+    postfix postfix-doc \
+    opendkim opendkim-doc \
+    cyrus-sasl cyrus-sasl-doc \
     cyrus-sasl-login cyrus-sasl-digestmd5
 
 # Copy configuration files
