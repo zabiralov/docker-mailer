@@ -1,0 +1,12 @@
+2021-08-19  Alexander Zabiralov <zabiralov@gmail.com>
+
+	* Add SMTP auth via cyrus-sasl framework
+
+2021-06-18  Aleksandr Zabiralov <zabiralov@gmail.com>
+
+	* Mostly works as expected
+
+2021-06-17  Aleksandr Zabiralov <zabiralov@gmail.com>
+
+	* 1st
+
