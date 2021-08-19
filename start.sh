@@ -15,6 +15,13 @@ else exit 1
 fi
 
 
+echo -n "Set postfix owner for sasldb2 database ... "
+if chown postfix /etc/sasl2/sasldb2
+then echo OK
+else exit 1
+fi
+
+
 echo -n "Set permissions for $DKIM_KEYFILE ... "
 if chmod 400 $DKIM_KEYFILE
 then echo OK
