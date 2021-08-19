@@ -1,11 +1,5 @@
 #!/usr/bin/env sh
 
-echo -n "Start syslogd ... "
-if /sbin/syslogd -s 0 -O -
-then echo OK
-else echo FAIL
-fi
-
 
 echo -n "Create mail aliases ... "
 if /usr/sbin/postalias -c /etc/mailer lmdb:/etc/mailer/aliases
@@ -16,13 +10,6 @@ fi
 
 echo -n "Create sasldb2 database ... "
 if echo -n 'AHmOi2CCVtchGeG' | /usr/sbin/saslpasswd2 -f /etc/sasl2/sasldb2 -u "$DKIM_DOMAIN" -p "$RELAY_USER"
-then echo OK
-else echo FAIL
-fi
-
-
-echo -n "Change owner to postfix user for /etc/mailer ... "
-if chown -R postfix:postfix /etc/mailer
 then echo OK
 else echo FAIL
 fi
@@ -42,11 +29,7 @@ else echo FAIL
 fi
 
 
-echo -n "Start Postfix MTA ... "
-if /usr/sbin/postfix -c /etc/mailer start &> /dev/null
-then echo OK
-else echo FAIL
-fi
+exec /usr/sbin/postfix -c /etc/mailer start-fg
 
 
-exec /bin/sleep inf
+# exec /bin/sleep inf
